@@ -53,11 +53,13 @@ class MainContainer extends Component {
     },()=>{console.log(this.state.filtered)})
   }
 
-  ///The filter function is not completely working, needs repair 🛠
+   
   renderStocks = () => {
     let filteredStocks = [...this.state.stocks]
     if (this.state.filtered !== "All"){
-      return filteredStocks = filteredStocks.filter(stocks =>{stocks.type === this.state.filtered})
+      filteredStocks = filteredStocks.filter(stocks => { return stocks.type === this.state.filtered} )
+      // filteredStocks = filteredStocks.filter(stocks => stocks.type === this.state.filtered )
+      //without curly braces you don't need return with curly braces you do
     }
 
     switch(this.state.sort){
